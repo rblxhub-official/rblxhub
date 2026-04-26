@@ -264,7 +264,7 @@ const messages = [
   "🎮 Play our Roblox game now!",
   "💬 Join our Discord server!",
   "🎉 Events and giveaways coming soon!",
-  "📢 Question of the Day is Here! Hello @everyone. It’s time to get everyone talking! Drop your answers, share your thoughts, and see what others have to say 👀"
+  "📢 Question of the Day is Here!"
 ];
 
 let index = 0;
@@ -276,7 +276,7 @@ function changeMessage() {
 }
 
 // Change every 5 seconds
-setInterval(changeMessage, 5000);
+setInterval(changeMessage, 10000);
 
 // First message
 text.innerText = messages[0];
