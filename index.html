@@ -258,4 +258,28 @@
 <script src="//code.tidio.co/econshwqoyvnqc2jwjlqwnc3hvlbmnjg.js" async></script>
 
 </body>
+<script>
+const messages = [
+  "🚀 This is an Offical RBLX HUB Website.",
+  "🎮 Play our Roblox game now!",
+  "💬 Join our Discord server!",
+  "🎉 Events and giveaways coming soon!",
+  "🔥 Small Community, Big Energy!"
+];
+
+let index = 0;
+const text = document.getElementById("announcementText");
+
+function changeMessage() {
+  index = (index + 1) % messages.length;
+  text.innerText = messages[index];
+}
+
+// Change every 5 seconds
+setInterval(changeMessage, 5000);
+
+// First message
+text.innerText = messages[0];
+</script>  
+  
 </html>
