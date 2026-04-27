@@ -47,7 +47,31 @@
   50% { opacity: 0.3; box-shadow: 0 0 2px #22c55e; }
   100% { opacity: 1; box-shadow: 0 0 10px #22c55e; }
 }
- 
+
+.formBox {
+  max-width: 400px;
+  margin: 20px auto;
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(59,130,246,0.4);
+}
+
+.formBox input,
+.formBox textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: #020617;
+  color: white;
+}
+
+.formBox textarea {
+  height: 120px;
+}
+    
     body {
       margin: 0;
       margin-top: 50px;
@@ -244,6 +268,22 @@
     </div>
 
   </div>
+</div>
+
+<div class="section">
+  <h2>📨 Contact Us</h2>
+
+  <form action="https://formspree.io/f/xdayvvop" method="POST" class="formBox">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit" class="btn">Send Message</button>
+
+  </form>
 </div>
   
 <!-- FOOTER -->
