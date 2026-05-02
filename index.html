@@ -71,6 +71,36 @@
 .formBox textarea {
   height: 120px;
 }
+
+.verified {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: bold;
+
+  color: #22c55e;
+  border: 1px solid #22c55e;
+  border-radius: 999px;
+
+  box-shadow: 0 0 8px #22c55e;
+  animation: glowPulse 1.5s infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px #22c55e;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px #22c55e;
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 5px #22c55e;
+    transform: scale(1);
+  }
+}
     
     body {
       margin: 0;
@@ -250,6 +280,37 @@
   <a class="btn" href="https://discord.gg/ymekHw8R7j" target="_blank">
     Join Now 🚀
   </a>
+</div>
+
+<div class="section">
+  <h2>🌟 Featured Server</h2>
+
+  <div class="card" style="max-width:400px; margin:auto; text-align:center;">
+
+    <!-- SERVER LOGO -->
+    <img src="https://via.placeholder.com/80"
+         alt="Server Logo"
+         style="width:80px; height:80px; border-radius:20px; box-shadow:0 0 15px #3b82f6;">
+
+    <h3 style="margin-top:15px;">
+      🎮 RBLX HUB Partner
+      <span class="verified">✔ Verified</span>
+    </h3>
+
+    <p style="color:#94a3b8;">
+      Join this amazing Roblox community!  
+      Play games, chat, and meet new players 🎮
+    </p>
+
+    <br>
+
+    <a href="https://discord.gg/ymekHw8R7j"
+       target="_blank"
+       class="btn">
+       Join Server 🚀
+    </a>
+
+  </div>
 </div>
 
 <div class="section">
