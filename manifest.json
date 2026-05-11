@@ -1,0 +1,21 @@
+{
+  "name": "RBLX HUB",
+  "short_name": "RBLX HUB",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#5865F2",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "IMG_20260410_130857_071.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "IMG_20260410_130857_071.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
