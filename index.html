@@ -8,6 +8,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #5865F2, #0f172a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-content {
+  text-align: center;
+  color: white;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px;
+  animation: float 2s infinite ease-in-out;
+}
+
+.loading-bar {
+  width: 220px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.loading-progress {
+  width: 0%;
+  height: 100%;
+  background: white;
+  animation: loading 3s forwards;
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
   .status {
   display: inline-block;
   width: 12px;
@@ -377,8 +443,17 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./service-worker.js');
 }
 </script>
+
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loading-screen').style.display = 'none';
+  }, 3000);
+});
+</script>
   
 </body>
+
 <script>
 const messages = [
   "🚀 This is an Offical RBLX HUB Website.",
