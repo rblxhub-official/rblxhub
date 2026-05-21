@@ -172,7 +172,7 @@ body {
   animation: blink 1s infinite;
 }
 
-.announcement {
+.top-announcement {
   position: fixed;
   top: 0;
   width: 100%;
@@ -340,7 +340,7 @@ body {
 
 <body>
 
-<div class="announcement">
+<div class="top-announcement">
   <p id="announcementText">Loading...</p>
 </div>
 
@@ -629,27 +629,6 @@ function logout(){
 
 <script>
 
-function loadAnnouncements(){
-
-  let list = document.getElementById("announcementList");
-  list.innerHTML = "";
-
-  let data = JSON.parse(localStorage.getItem("ann")) || [];
-
-  if(data.length === 0){
-    list.innerHTML = "<p>No announcements yet.</p>";
-    return;
-  }
-
-  data.forEach(msg => {
-    list.innerHTML += `
-      <div class="announcement">
-        📢 ${msg}
-      </div>
-    `;
-  });
-
-}
 
 /* Auto load when page opens */
 window.onload = function(){
