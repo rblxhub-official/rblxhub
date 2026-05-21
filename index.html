@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+body{
+  background:#0f0f0f;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+}
+
+input, textarea{
+  width:80%;
+  padding:10px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+  background:#2a2a2a;
+  color:white;
+}
+
+button{
+  padding:10px 20px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+  background:#5865F2;
+  color:white;
+  cursor:pointer;
+}
+
+.announcement{
+  background:#1b1b1b;
+  margin:10px auto;
+  padding:10px;
+  width:80%;
+  border-left:5px solid #5865F2;
+}
+  </style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#5865F2">
   
@@ -255,6 +291,30 @@ body {
 </head>
 
 <body>
+
+<div id="loginPage">
+  <h2>Admin Login</h2>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <p id="error"></p>
+</div>
+
+<div id="adminPanel" style="display:none;">
+  <h2>Admin Panel</h2>
+
+  <textarea id="announcementInput" placeholder="Write announcement..."></textarea>
+
+  <button onclick="postAnnouncement()">Publish</button>
+
+  <button onclick="logout()" style="background:red;">Logout</button>
+
+  <div id="announcementList"></div>
+</div>
+  
 <div class="announcement">
   <p id="announcementText">Loading...</p>
 </div>
@@ -450,6 +510,64 @@ window.addEventListener('load', () => {
     document.getElementById('loading-screen').style.display = 'none';
   }, 3000);
 });
+</script>
+
+<script>
+
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "rblxhubgenznation12sss";
+
+/* LOGIN */
+function login(){
+  let u = document.getElementById("username").value;
+  let p = document.getElementById("password").value;
+
+  if(u === ADMIN_USER && p === ADMIN_PASS){
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+    loadAnnouncements();
+  } else {
+    document.getElementById("error").innerText = "Wrong login!";
+  }
+}
+
+/* POST ANNOUNCEMENT */
+function postAnnouncement(){
+
+  let text = document.getElementById("announcementInput").value;
+
+  if(text.trim() === "") return;
+
+  let data = JSON.parse(localStorage.getItem("ann")) || [];
+
+  data.unshift(text);
+
+  localStorage.setItem("ann", JSON.stringify(data));
+
+  document.getElementById("announcementInput").value = "";
+
+  loadAnnouncements();
+}
+
+/* LOAD ANNOUNCEMENTS */
+function loadAnnouncements(){
+
+  let list = document.getElementById("announcementList");
+  list.innerHTML = "";
+
+  let data = JSON.parse(localStorage.getItem("ann")) || [];
+
+  data.forEach(msg => {
+    list.innerHTML += `<div class="announcement">📢 ${msg}</div>`;
+  });
+
+}
+
+/* LOGOUT */
+function logout(){
+  location.reload();
+}
+
 </script>
   
 </body>
