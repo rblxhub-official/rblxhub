@@ -292,29 +292,6 @@ body {
 
 <body>
 
-<div id="loginPage">
-  <h2>Admin Login</h2>
-
-  <input type="text" id="username" placeholder="Username">
-  <input type="password" id="password" placeholder="Password">
-
-  <button onclick="login()">Login</button>
-
-  <p id="error"></p>
-</div>
-
-<div id="adminPanel" style="display:none;">
-  <h2>Admin Panel</h2>
-
-  <textarea id="announcementInput" placeholder="Write announcement..."></textarea>
-
-  <button onclick="postAnnouncement()">Publish</button>
-
-  <button onclick="logout()" style="background:red;">Logout</button>
-
-  <div id="announcementList"></div>
-</div>
-  
 <div class="announcement">
   <p id="announcementText">Loading...</p>
 </div>
@@ -486,6 +463,29 @@ body {
 
   </form>
 </div>
+
+<div id="loginPage">
+  <h2>Admin Login</h2>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <p id="error"></p>
+</div>
+
+<div id="adminPanel" style="display:none;">
+  <h2>Admin Panel</h2>
+
+  <textarea id="announcementInput" placeholder="Write announcement..."></textarea>
+
+  <button onclick="postAnnouncement()">Publish</button>
+
+  <button onclick="logout()" style="background:red;">Logout</button>
+
+  <div id="announcementList"></div>
+</div>
   
 <!-- FOOTER -->
 <footer>
@@ -494,6 +494,7 @@ body {
   <p>© 2026 RBLX HUB — All Rights Reserved</p>
   <p><span style="color:#3b82f6;">Version 2.5</span></p>
 </footer>
+
 
 <!-- CHATBOT -->
 <script src="//code.tidio.co/econshwqoyvnqc2jwjlqwnc3hvlbmnjg.js" async></script>
