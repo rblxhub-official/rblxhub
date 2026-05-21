@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <style>
+
+body{
+  background:#0f0f0f;
+  color:white;
+  font-family:Arial;
+  margin:0;
+  text-align:center;
+}
+
+/* Section */
+#announcementsSection{
+  padding:30px 10px;
+}
+
+/* Title */
+#announcementsSection h1{
+  color:#5865F2;
+  margin-bottom:20px;
+}
+
+/* Announcement Card */
+.announcement{
+  background:#1b1b1b;
+  margin:15px auto;
+  padding:15px;
+  width:85%;
+  max-width:600px;
+  border-radius:15px;
+  border-left:5px solid #5865F2;
+  text-align:left;
+  animation:fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+  </style>
+  
   <style>
 body{
   background:#0f0f0f;
@@ -399,6 +447,14 @@ body {
   </a>
 </div>
 
+<section id="announcementsSection">
+
+  <h1>📢 Latest Announcements</h1>
+
+  <div id="announcementList"></div>
+
+</section>
+
 <div class="section">
   <h2>🌟 Featured Server</h2>
 
@@ -567,6 +623,37 @@ function loadAnnouncements(){
 /* LOGOUT */
 function logout(){
   location.reload();
+}
+
+</script>
+
+<script>
+
+function loadAnnouncements(){
+
+  let list = document.getElementById("announcementList");
+  list.innerHTML = "";
+
+  let data = JSON.parse(localStorage.getItem("ann")) || [];
+
+  if(data.length === 0){
+    list.innerHTML = "<p>No announcements yet.</p>";
+    return;
+  }
+
+  data.forEach(msg => {
+    list.innerHTML += `
+      <div class="announcement">
+        📢 ${msg}
+      </div>
+    `;
+  });
+
+}
+
+/* Auto load when page opens */
+window.onload = function(){
+  loadAnnouncements();
 }
 
 </script>
