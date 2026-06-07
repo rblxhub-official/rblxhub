@@ -30,6 +30,40 @@ button{
   cursor:pointer;
 }
 
+#events{
+  max-width:700px;
+  margin:auto;
+  padding:20px;
+}
+
+.event-card{
+  background:#1e1e1e;
+  color:white;
+  padding:20px;
+  border-radius:12px;
+  border-left:5px solid #5865F2;
+}
+
+#countdown{
+  font-size:22px;
+  font-weight:bold;
+  margin:15px 0;
+  color:#5865F2;
+}
+
+.join-btn{
+  display:inline-block;
+  background:#5865F2;
+  color:white;
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:8px;
+}
+
+.join-btn:hover{
+  opacity:0.9;
+}
+    
   </style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#5865F2">
@@ -413,6 +447,26 @@ bellBtn.addEventListener("click", () => {
   </div>
 </div>
 
+<section id="events">
+  <h2>📅 Upcoming Events</h2>
+
+  <div class="event-card">
+    <h3>Guess The Game 4.0</h3></h3>
+
+    <p>Starts: June 9, 2026 - 8:30 PM</p>
+
+    <div id="countdown">
+      Loading countdown...
+    </div>
+
+    <a href="https://discord.gg/Z8CRha4Ejm"
+       target="_blank"
+       class="join-btn">
+       Join Event on Discord
+    </a>
+  </div>
+</section>
+  
 <!-- LINKS -->
 <div class="section">
   <h2>🌐 Our Links</h2>
@@ -563,6 +617,30 @@ window.addEventListener('load', () => {
     document.getElementById('loading-screen').style.display = 'none';
   }, 3000);
 });
+</script>
+
+<script>
+const eventDate = new Date("June 9, 2026 20:30:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24))
+                / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60))
+                / (1000 * 60));
+
+  document.getElementById("countdown").innerHTML =
+    `${days}d ${hours}h ${minutes}m`;
+
+  if(distance < 0){
+    document.getElementById("countdown").innerHTML =
+      "🎉 Event Started!";
+  }
+}, 1000);
+
 </script>
  
 </body>
