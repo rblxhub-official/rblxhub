@@ -279,10 +279,12 @@ body {
 </div>
 
 <style>
+/* 🔔 wrapper makes badge positioning PERFECT */
 #bellBtn{
     position:fixed;
     top:15px;
     right:15px;
+
     width:45px;
     height:45px;
     border-radius:50%;
@@ -291,54 +293,54 @@ body {
     color:white;
     font-size:20px;
     cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:fixed;
     z-index:1000;
+
+    /* IMPORTANT */
+    position:fixed;
+    overflow:visible;
 }
 
-/* Red badge */
+/* 🔴 badge */
 #badge{
     position:absolute;
     top:-5px;
     right:-5px;
+
     background:red;
     color:white;
-    font-size:12px;
+    font-size:11px;
+    font-weight:bold;
+
     width:18px;
     height:18px;
     border-radius:50%;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:bold;
+
+    border:2px solid #1e1e1e; /* makes it look clean */
 }
 
-/* make button relative for badge positioning */
-#bellBtn{
-    position:fixed;
-    top:15px;
-    right:15px;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:none;
-    background:#5865F2;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    z-index:1000;
-    position:fixed;
-}
-
+/* 📦 dropdown */
 #notifications{
     position:fixed;
     top:70px;
     right:15px;
+
     width:320px;
     background:#1e1e1e;
     color:white;
     border-radius:12px;
     padding:15px;
+
     display:none;
-    z-index:999;
     box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
@@ -363,13 +365,12 @@ bellBtn.addEventListener("click", () => {
     const isOpen = notifications.style.display === "block";
     notifications.style.display = isOpen ? "none" : "block";
 
-    // remove badge when opened
     if (!isOpen) {
         badge.style.display = "none";
     }
 });
 </script>
-
+  
 <div id="loading-screen">
   <div class="loader-content">
     <img src="IMG_20260410_130857_071.png" alt="RBLX HUB Logo" class="logo">
