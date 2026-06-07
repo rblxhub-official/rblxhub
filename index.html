@@ -125,35 +125,6 @@ body {
   animation: blink 1s infinite;
 }
 
-.top-announcement {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #1e293b;
-  border-bottom: 1px solid #3b82f6;
-  z-index: 1000;
-}
-
-.announcement p {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scrollText 15s linear infinite;
-  color: #3b82f6;
-  font-weight: bold;
-  padding: 10px 0;
-}
-
-@keyframes scrollText {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-@keyframes blink {
-  0% { opacity: 1; box-shadow: 0 0 10px #22c55e; }
-  50% { opacity: 0.3; box-shadow: 0 0 2px #22c55e; }
-  100% { opacity: 1; box-shadow: 0 0 10px #22c55e; }
-}
-
 .formBox {
   max-width: 400px;
   margin: 20px auto;
@@ -406,7 +377,7 @@ bellBtn.addEventListener("click", () => {
 });
 </script>
 
-<div class="top-announcement">
+
   <p id="announcementText">Loading...</p>
 </div>
 
@@ -583,7 +554,7 @@ bellBtn.addEventListener("click", () => {
   <h3 style="margin:0; color:#3b82f6;">RBLX HUB</h3>
   <p>Small Community, Big Energy.</p>
   <p>© 2025 RBLX HUB — All Rights Reserved</p>
-  <p><span style="color:#3b82f6;">Version 2.5</span></p>
+  <p><span style="color:#3b82f6;">Version 3.5</span></p>
 </footer>
 
 
@@ -606,28 +577,4 @@ window.addEventListener('load', () => {
  
 </body>
 
-<script>
-const messages = [
-  "🚀 This is an Offical RBLX HUB Website.",
-  "🎮 Play our Roblox game now!",
-  "💬 Join our Discord server!",
-  "🎉 Events and giveaways coming soon!",
-  "📢 Question of the Day is Here!"
-];
-
-let index = 0;
-const text = document.getElementById("announcementText");
-
-function changeMessage() {
-  index = (index + 1) % messages.length;
-  text.innerText = messages[index];
-}
-
-// Change every 5 seconds
-setInterval(changeMessage, 15000);
-
-// First message
-text.innerText = messages[0];
-</script>  
-  
 </html>
