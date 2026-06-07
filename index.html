@@ -293,6 +293,119 @@ body {
 
 <body>
 
+<button id="bellBtn">
+    🔔
+    <span id="badge">3</span>
+</button>
+
+<div id="notifications">
+    <h3>Latest Announcements</h3>
+
+    <div class="announcement">
+        <div class="title">🎉 Summer Event 2026</div>
+        <div class="description">Join our summer event for rewards and games!</div>
+        <div class="date">June 15, 2026</div>
+    </div>
+
+    <div class="announcement">
+        <div class="title">📢 New Partnership</div>
+        <div class="description">We partnered with a new community!</div>
+        <div class="date">June 10, 2026</div>
+    </div>
+</div>
+
+<style>
+#bellBtn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:#5865F2;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    z-index:1000;
+}
+
+/* Red badge */
+#badge{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    background:red;
+    color:white;
+    font-size:12px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+/* make button relative for badge positioning */
+#bellBtn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:#5865F2;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    z-index:1000;
+    position:fixed;
+}
+
+#notifications{
+    position:fixed;
+    top:70px;
+    right:15px;
+    width:320px;
+    background:#1e1e1e;
+    color:white;
+    border-radius:12px;
+    padding:15px;
+    display:none;
+    z-index:999;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.announcement{
+    background:#2a2a2a;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+.title{ font-weight:bold; }
+.description{ font-size:13px; color:#ccc; }
+.date{ font-size:11px; color:#888; margin-top:4px; }
+</style>
+
+<script>
+const bellBtn = document.getElementById("bellBtn");
+const notifications = document.getElementById("notifications");
+const badge = document.getElementById("badge");
+
+bellBtn.addEventListener("click", () => {
+    const isOpen = notifications.style.display === "block";
+    notifications.style.display = isOpen ? "none" : "block";
+
+    // remove badge when opened
+    if (!isOpen) {
+        badge.style.display = "none";
+    }
+});
+</script>
+
 <div class="top-announcement">
   <p id="announcementText">Loading...</p>
 </div>
